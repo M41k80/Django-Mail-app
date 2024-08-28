@@ -1,2 +1,4 @@
 # Django-Mail-app
-Django Mail APP
+
+
+Django Mail APP WITH JS AND BULMA CSS
