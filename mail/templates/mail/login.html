@@ -1,0 +1,28 @@
+{% extends "mail/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+    <div class="container has-background-dark">
+        <img class="image" src="{% static 'mail/mailapppng.png' %}" alt="logo">
+        <br>
+    <h2 class="title is-2 has-text-primary has-text-centered">Login</h2>
+
+    {% if message %}
+        <div class="notification is-danger">{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="field">
+            <input autofocus class="input" type="email" name="email" placeholder="Email">
+        </div>
+        <div class="field">
+            <input class="input" type="password" name="password" placeholder="Password">
+        </div>
+        <input class="button is-primary is-rounded" type="submit" value="Login">
+    </form>
+    <br>
+    <label class="has-text-warning">Don't have an account?</label> <a href="{% url 'register' %}">Register here.</a>
+    </div>
+{% endblock %}

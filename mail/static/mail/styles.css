@@ -1,0 +1,18 @@
+textarea {
+    min-height:400px;
+}
+
+.image {
+    border-radius: 50%;
+    padding-top: 10px;
+    width: 80px;
+
+}
+
+.read {
+    background-color: dimgrey;
+}
+
+.unread {
+    background-color: white;
+}

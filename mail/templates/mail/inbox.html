@@ -1,0 +1,47 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container has-background-dark">
+    <img class="image" src="{% static 'mail/mailapppng.png' %}" alt="logo">
+        <br>
+    <h2 class="title is-4 has-text-primary">{{ request.user.email }}</h2>
+
+    <button class="button is-info" id="inbox">Inbox</button>
+    <button class="button is-info" id="compose">Compose</button>
+    <button class="button is-info" id="sent">Sent</button>
+    <button class="button is-info" id="archived">Archived</button>
+    <a class="button is-link" href="{% url 'logout' %}">Log Out</a>
+    <hr>
+
+    <div id="emails-view">
+    </div>
+
+    <div id="email-view-details">
+    </div>
+
+    <div id="compose-view">
+        <h3 class="title is-5 has-text-success">New Email</h3>
+        <form id="compose-form">
+            <div class="field">
+                <p class="has-text-warning">From:</p> <input disabled class="input is-success" type="email" value="{{ request.user.email }}">
+            </div>
+            <div class="field">
+                <p class="has-text-warning">To:</p> <input id="compose-recipients" class="input" type="email">
+            </div>
+            <div class="field">
+                <input class="input" type="text" id="compose-subject" placeholder="Subject" >
+            </div>
+            <textarea class="textarea is-large" type="Textarea" id="compose-body" placeholder="Body"></textarea>
+            <br>
+            <input type="submit" class="button is-link"/>
+        </form>
+    </div>
+
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}
